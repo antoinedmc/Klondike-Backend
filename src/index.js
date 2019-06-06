@@ -3,17 +3,28 @@ import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import dbConfig from '../config/database.config';
+import helmet from 'helmet';
+import morgan from 'morgan';
+
+import routes from './routes/routes';
 
 const app = express();
 
+// adding helmet to enhance API's security
+app.use(helmet());
+// enabling CORS for all requests
 app.use(cors());
+// using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// adding morgan to log HTTP requests
+app.use(morgan('combined'));
+
+app.use(routes);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(dbConfig.url, {
+mongoose.connect(process.env.URL_DB, {
     useNewUrlParser: true
 })
     .then(() => {
@@ -23,24 +34,6 @@ mongoose.connect(dbConfig.url, {
         console.log('Could not connect to the database. Exiting now...', err);
         process.exit();
     })
-
-app.get('/', (req, res) => {
-    res.json({
-        "message": "Welcome on Klondike, bitch"
-    });
-})
-
-app.post('/users', (req, res) => {
-    return res.send('POST HTTP method on user resource');
-});
-
-app.put('/users/:userId', (req, res) => {
-    return res.send(`PUT HTTP method on user/${req.params.userId} resource`);
-});
-
-app.delete('/users/:userId', (req, res) => {
-    return res.send(`DELETE HTTP method on user/${req.params.userId} resource`);
-});
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
