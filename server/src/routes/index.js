@@ -1,17 +1,12 @@
 import express from 'express';
-import notes from '../controllers';
+// import { note } from '../controllers';
+import noteController from '../controllers/note';
 
 const router = express.Router();
 
-router.post('/notes', notes.create);
+console.log('NC', noteController);
 
-router.get('/notes', notes.findAll);
+router.post('/notes', noteController.create);
+router.delete('/notes/:noteId', noteController.deleteC);
 
-router.get('/notes/:noteId', notes.findOne);
-
-router.put('/notes/:noteId', notes.update);
-
-router.delete('/notes/:noteId', notes.delete);
-
-module.exports = router;
-
+export default router;
