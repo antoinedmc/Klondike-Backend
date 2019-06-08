@@ -1,4 +1,4 @@
-import Note from '../models/models';
+import Note from '../models';
 
 // create and save new note
 exports.create = (req, res) => {

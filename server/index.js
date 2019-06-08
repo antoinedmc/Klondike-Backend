@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import routes from './routes/routes';
+import routes from './src/routes';
 
 const app = express();
 
