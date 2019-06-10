@@ -1,7 +1,7 @@
-import create from './create';
-import deleteC from './delete';
+import createNote from './create';
+import deleteNote from './delete';
 
 export default {
-    create,
-    deleteC
+    createNote,
+    deleteNote
 }

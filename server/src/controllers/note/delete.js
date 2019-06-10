@@ -1,6 +1,6 @@
 import Note from '../../models/note';
 
-const deleteC = (req, res) => {
+const deleteNote = (req, res) => {
 
     Note.findByIdAndRemove(req.params.noteId)
         .then(note => {
@@ -22,4 +22,4 @@ const deleteC = (req, res) => {
         });
 };
 
-export default deleteC;
+export default deleteNote;

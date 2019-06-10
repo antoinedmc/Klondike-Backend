@@ -1,6 +1,6 @@
 import Note from '../../models/note';
 
-const create = (req, res) => {
+const createNote = (req, res) => {
     //validate request
     if (!req.body.content) {
         return res.status(400).send({
@@ -26,5 +26,5 @@ const create = (req, res) => {
         });
 };
 
-export default create;
+export default createNote;
 

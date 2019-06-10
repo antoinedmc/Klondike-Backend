@@ -1,6 +1,7 @@
-const postController = {};
+import createPost from './create';
+import deletePost from './delete';
 
-postController.create = require('./create');
-postController.delete = require('./delete');
-
-module.exports = postController;
+export default {
+    createPost,
+    deletePost
+}
