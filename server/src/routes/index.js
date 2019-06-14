@@ -1,8 +1,14 @@
 import express from 'express';
 import noteController from '../controllers/note';
 import postController from '../controllers/post';
+import userController from '../controllers/user';
+
+// import usersRoutes from './users';
 
 const router = express.Router();
+
+// users
+router.post('/users', userController.addUser);
 
 // notes
 router.post('/notes', noteController.createNote);
