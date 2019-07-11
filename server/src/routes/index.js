@@ -17,5 +17,6 @@ router.delete('/notes/:noteId', noteController.deleteNote);
 // post
 router.post('/posts', postController.createPost);
 router.delete('/posts/:postId', postController.deletePost);
+router.get('/posts/:postId?', postController.getPost);
 
 export default router;
