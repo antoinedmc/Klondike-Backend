@@ -8,7 +8,7 @@ import userController from '../controllers/user';
 const router = express.Router();
 
 // users
-router.post('/users', userController.addUser);
+router.post('/users/signup', userController.addUser);
 
 // notes
 router.post('/notes', noteController.createNote);
