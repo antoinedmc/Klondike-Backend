@@ -9,6 +9,8 @@ const router = express.Router();
 
 // users
 router.post('/users/signup', userController.addUser);
+router.delete('/users/:userId', userController.deleteUser);
+router.get('users/:userId?', userController.getUser); // fonctionne pas
 
 // notes
 router.post('/notes', noteController.createNote);

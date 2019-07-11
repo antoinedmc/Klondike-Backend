@@ -8,7 +8,7 @@ const getPost = (req, res) => {
 
         // return all the posts
         Post.find({}, (error, posts) => {
-            if (error) return res.status(404).send('Internal error', error);
+            if (error) return res.status(404).send('Internal error');
 
             return res.status(200).json({
                 message: 'Posts retrieved successfully',
