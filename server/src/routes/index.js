@@ -4,8 +4,6 @@ import postController from '../controllers/post';
 import userController from '../controllers/user';
 import checkAuth from '../middlewares/check-auth';
 
-// import usersRoutes from './users';
-
 const router = express.Router();
 
 // users
