@@ -1,6 +1,7 @@
 import Post from '../../models/post';
 
 const createPost = (req, res) => {
+    console.log(req.file);
 
     //validate request
     if (!req.body.content) {

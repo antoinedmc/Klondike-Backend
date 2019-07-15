@@ -1,7 +1,6 @@
 import User from '../../models/user';
 import bcrypt from 'bcryptjs';
 import mongoose from 'mongoose';
-import Token from '../../middlewares/token';
 
 const createUser = (req, res, next) => {
 
